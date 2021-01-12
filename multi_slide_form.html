@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form 1</title>
+    <style>
+      /* Reset */
+      @import url('https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap');
+      :root {
+        font-size: 16px;
+      }
+
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      ::before,
+      ::after {
+        box-sizing: inherit;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: sans-serif;
+      }
+
+      header,
+      nav,
+      main,
+      section,
+      article,
+      aside,
+      time,
+      footer {
+        display: block;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        margin: 0 0 15px;
+        padding: 0;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      h4 {
+        font-size: 1.25rem;
+      }
+
+      h5 {
+        font-size: 1rem;
+      }
+
+      h6 {
+        font-size: 0.75rem;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      form {
+        margin-bottom: 15px;
+      }
+
+      form fieldset {
+        margin: 0;
+        padding: 0;
+        min-width: auto;
+        border: none;
+        min-inline-size: 100%;
+      }
+
+      form fieldset legend {
+        margin: 0;
+        padding: 0;
+        font-size: 0;
+        border: none;
+        visibility: hidden;
+      }
+
+      label {
+        display: inline-block;
+        margin-bottom: 5px;
+      }
+
+      input,
+      textarea,
+      select,
+      button {
+        display: block;
+        margin-bottom: 15px;
+        padding: 5px 10px;
+        width: 100%;
+        font: inherit;
+      }
+
+      input[type='submit'],
+      input[type='button'],
+      input[type='reset'],
+      input[type='checkbox'],
+      input[type='radio'],
+      button {
+        display: inline-block;
+        width: auto;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 15px 25px;
+        padding: 0;
+      }
+
+      ul li,
+      ol li {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 20px;
+        font-family: 'Raleway', sans-serif;
+        line-height: 1.2;
+        background-color: #f3f3f3;
+      }
+
+      h1 {
+        padding-bottom: 10px;
+        font-weight: 400;
+      }
+
+      button {
+        padding: 10px 15px;
+        color: #ffffff;
+        background-color: #7755dd;
+        border: 0;
+        cursor: pointer;
+      }
+
+      .wrapper {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 960px;
+      }
+
+      .text-right {
+        text-align: right;
+      }
+
+      .form-wizard {
+        padding: 40px 50px;
+        background-color: #ffffff;
+        box-shadow: 0 5px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .step {
+        display: none;
+      }
+
+      .step.is-active {
+        display: block;
+      }
+
+      .input-group {
+        padding-bottom: 10px;
+      }
+
+      .input-group.has-error .form-control {
+        border-color: #ff3355;
+      }
+
+      .form-control {
+        padding: 10px 15px;
+        border: 1px solid #777777;
+      }
+
+      .btn-prev {
+        display: none;
+      }
+
+      .btn-prev.is-active {
+        display: inline-block;
+      }
+
+      .progress-bar {
+        margin-bottom: 10px;
+        width: 100%;
+        height: 2px;
+        background-color: #7755dd;
+        transform-origin: left center;
+        transform: scaleX(0.01);
+        transition: transform 0.2s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <form
+      method="post"
+      action="https://collector.bluefireforms.com/api/data/lead/6f97e39e-b4f1-4b27-b156-7d0c2bdc30a4"
+      id="form_wizard_1"
+      class="form-wizard js-form-wizard"
+      novalidate
+    >
+      <input id="redirect" name="redirect" value="/thank-you.html" type="hidden" />
+      <input id="leadid_token" name="leadid_token" type="hidden" />
+      <input id="pageid_token" name="___pageid___" type="hidden" />
+      <input id="comboid" name="campaign_sub_id_2" type="hidden" value="" />
+      <input id="gclid" name="gclid" type="hidden" value="" />
+
+      <fieldset class="step js-step">
+        <h1>Register</h1>
+        <legend>Namde</legend>
+        <div class="input-group js-input-group">
+          <label for="first_name">First name</label>
+          <input type="text" name="first" id="first_name" class="form-control js-form-control" required />
+        </div>
+        <div class="input-group js-input-group">
+          <label for="last_name">Last name</label>
+          <input type="text" name="last" id="last_name" class="form-control js-form-control" required />
+        </div>
+      </fieldset>
+
+      <div class="input-group text-right">
+        <button type="button" class="btn-prev js-btn-prev">Prev</button>
+        <button type="button" class="js-btn-next" data-step-text="Next" data-final-step-text="Submit">Next</button>
+      </div>
+
+      <div class="progress-bar js-progress-bar"></div>
+    </form>
+
+    <script>
+      var buildLocalStorage = function () {
+        var comboId = getParameterByName('comboId') || getParameterByName('comboid');
+        var gclid = getParameterByName('gclid');
+        var fbclid = getParameterByName('fbclid');
+
+        // Check for comboId, gclid, fbclid
+        if (comboId !== null) {
+          var previousComboId = getWithExpiry('_bfl_combo_id');
+          // if (previousComboId === null) {
+          setWithExpiry('_bfl_combo_id', comboId, 30);
+          // }
+        }
+        if (gclid !== null) {
+          var previousGclid = getWithExpiry('_bfl_gclid');
+          // if (previousGclid === null) {
+          setWithExpiry('_bfl_gclid', gclid, 30);
+          // }
+        }
+        if (fbclid !== null) {
+          var previousFbclid = getWithExpiry('_bfl_fbclid');
+          // if (previousFbclid === null) {
+          setWithExpiry('_bfl_fbclid', fbclid, 30);
+          // }
+        }
+      };
+
+      var getParameterByName = function (name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      };
+
+      var setWithExpiry = function (key, value, ttl) {
+        var now = new Date();
+        // `item` is an object which contains the original value
+        // as well as the time when it's supposed to expire
+        var item = {
+          value: value,
+          expiry: now.setDate(now.getDate() + ttl),
+        };
+        localStorage.setItem(key, JSON.stringify(item));
+      };
+
+      var getWithExpiry = function (key) {
+        var itemStr = localStorage.getItem(key);
+        // If the item doesn't exist, return null
+        if (!itemStr) {
+          return null;
+        }
+        var item = JSON.parse(itemStr);
+        var now = new Date();
+        // Compare the expiry time of the item with the current time
+        if (now.getTime() > item.expiry) {
+          // If the item is expired, delete the item from storage
+          // and return null
+          localStorage.removeItem(key);
+          return null;
+        }
+        return item.value;
+      };
+
+      var generateV4GUID = function () {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+          var r = (Math.random() * 16) | 0,
+            v = c == 'x' ? r : (r & 0x3) | 0x8;
+          return v.toString(16);
+        });
+      };
+
+      var FormWizard = function (prop_element) {
+        var element = prop_element;
+        var steps = element.querySelectorAll('.js-step');
+        var formControls = element.querySelectorAll('.js-form-control');
+        var btnPrev = element.querySelector('.js-btn-prev');
+        var btnNext = element.querySelector('.js-btn-next');
+        var progressBar = element.querySelector('.js-progress-bar');
+        var currentStepIdx = 0;
+        var externalId = generateV4GUID();
+        var previousExternalId = getWithExpiry('_bfl_external_id');
+        if (previousExternalId == null) {
+          setWithExpiry('_bfl_external_id', externalId, 1);
+        } else {
+          externalId = previousExternalId;
+        }
+
+        var init = function () {
+          showStep(currentStepIdx);
+
+          loadScripts();
+
+          addEvents();
+        };
+
+        var showStep = function (prop_stepIdx) {
+          var stepIdx = prop_stepIdx;
+
+          steps[stepIdx].classList.add('is-active');
+          btnPrev.classList[stepIdx === 0 ? 'remove' : 'add']('is-active');
+          btnNext.innerText = btnNext.dataset[stepIdx === steps.length - 1 ? 'finalStepText' : 'stepText'];
+
+          updateProgressBar(stepIdx);
+        };
+
+        var prevNext = function (prop_value) {
+          var value = prop_value;
+
+          if (value === 1 && !validate()) {
+            return false;
+          }
+
+          steps[currentStepIdx].classList.remove('is-active');
+          currentStepIdx += value;
+
+          if (currentStepIdx >= steps.length) {
+            var event = new CustomEvent('bflSubmit', {
+              bubbles: true,
+              detail: {
+                name: 'DUDE',
+                value: 'VALUE',
+              },
+            });
+            element.dispatchEvent(event);
+            return false;
+          }
+
+          showStep(currentStepIdx);
+        };
+
+        var validate = function () {
+          var currentStepRequiredElements = steps[currentStepIdx].querySelectorAll('[required]');
+          var valid = true;
+
+          for (var index = 0; index < currentStepRequiredElements.length; index++) {
+            if (
+              currentStepRequiredElements[index].value === null ||
+              currentStepRequiredElements[index].value.trim() === ''
+            ) {
+              currentStepRequiredElements[index].closest('.js-input-group').classList.add('has-error');
+              valid = false;
+            }
+          }
+
+          return valid;
+        };
+
+        var clearErrors = function (e) {
+          e.target.closest('.js-input-group').classList.remove('has-error');
+        };
+
+        var updateProgressBar = function (prop_stepIdx) {
+          var percentage = prop_stepIdx / steps.length;
+
+          progressBar.style.transform = percentage === 0 ? 'scaleX(0.01)' : 'scaleX(' + percentage + ')';
+        };
+
+        var encodeQueryData = function (data) {
+          var ret = [];
+          for (var d in data) {
+            ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+          }
+          return ret.join('&');
+        };
+
+        var submit = function (e) {
+          var data = [];
+          var inputs = element.querySelectorAll('input, select, textarea');
+          var jsonData = '{';
+          for (var index = 0; index < inputs.length; index++) {
+            var input = inputs[index];
+            jsonData += '"' + input.name + '"' + ':' + '"' + encodeURIComponent(input.value) + '"' + ',';
+          }
+          jsonData = jsonData.substring(0, jsonData.length - 1);
+          jsonData += '}';
+          data = JSON.parse(jsonData);
+
+          // Get Local Storage Items
+          const previousExternalId = getWithExpiry('_bfl_external_id');
+          if (previousExternalId !== null) {
+            data.external_Id = previousExternalId;
+          }
+          const previousHubId = getWithExpiry('_bfl_hub_id');
+          if (previousHubId !== null) {
+            data.hub_Id = previousHubId;
+          }
+          const previousComboId = getWithExpiry('_bfl_combo_id');
+          if (previousComboId !== null) {
+            data.comboId = previousComboId;
+          }
+          const previousGclid = getWithExpiry('_bfl_gclid');
+          if (previousGclid !== null) {
+            data.gclid = previousGclid;
+          }
+          const previousFbclid = getWithExpiry('_bfl_fbclid');
+          if (previousFbclid !== null) {
+            data.fbclid = previousFbclid;
+          }
+
+          data.navigator = navigator.userAgent;
+          data.url = encodeURIComponent(new URL(window.location.href));
+          data.timestamp = new Date();
+
+          try {
+            // BFL Hub Collector
+            var request = new XMLHttpRequest();
+            request.open('POST', element.action, true);
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            request.send(encodeQueryData(data));
+          } catch (error) {
+            console.log('Hub Collector Failed', error);
+          }
+
+          try {
+            var hasSubmitForm = getWithExpiry('_bfl_has_submit_form');
+            if (hasSubmitForm == null) {
+              setWithExpiry('_bfl_has_submit_form', true, 1);
+            }
+            const kIndex = { _index: 'self_booking_form_backup_testing', _id: data.external_Id };
+            var kibanaData =
+              JSON.stringify(hasSubmitForm ? { update: kIndex } : { create: kIndex }) +
+              '\n' +
+              JSON.stringify(hasSubmitForm ? { doc: data } : data) +
+              '\n';
+
+            // Kibana
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://d9c680d5d48d41c8858c40ee7d0a3137.us-east-1.aws.found.io:9243/_bulk', false);
+            xhr.setRequestHeader('Content-Type', 'application/x-ndjson');
+            xhr.setRequestHeader(
+              'Authorization',
+              'Basic Rm9ybUJhY2t1cFVzZXI6MzAwMzIyZmItMzk3My00ODNiLTgxYzEtMDJmODk4ZWFhYWFk'
+            );
+            xhr.send(kibanaData);
+          } catch (error) {
+            console.log('Kibana Failed', error);
+          }
+
+          // Google Events
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'leadSubmitted',
+          });
+        };
+
+        var loadScripts = function () {
+          // Lead ID script
+          if (
+            !Array.from(document.querySelectorAll('script')).some(function (elm) {
+              return elm.id == 'LeadiDscript_campaign';
+            })
+          ) {
+            var script = document.createElement('script');
+            script.id = 'LeadiDscript_campaign';
+            script.type = 'text/javascript';
+            script.src =
+              'https://create.lidstatic.com/campaign/b44a9de7-2fa6-09b1-944e-11ea2f41920c.js?snippet_version=2';
+            script.async = true;
+            document.getElementsByTagName('head')[0].appendChild(script);
+          }
+          // Page ID script
+          if (
+            !Array.from(document.querySelectorAll('script')).some(function (elm) {
+              return elm.id == 'pageid_script';
+            })
+          ) {
+            var pageid_aid = '146808178';
+            var script = document.createElement('script');
+            script.id = 'pageid_script';
+            script.type = 'text/javascript';
+            script.src = 'https://cdn.pageid.info/js/pageid.js';
+            script.async = true;
+            document.getElementsByTagName('head')[0].appendChild(script);
+          }
+          // Optin Cert script
+          if (
+            !Array.from(document.querySelectorAll('script')).some(function (elm) {
+              return elm.id == 'optin_cert_script';
+            })
+          ) {
+            var field = 'optin_cert';
+            var provideReferrer = false;
+            var script = document.createElement('script');
+            script.id = 'optin_cert_script';
+            script.type = 'text/javascript';
+            script.async = true;
+            script.src =
+              'http' +
+              ('https:' == document.location.protocol ? 's' : '') +
+              '://api.trustedform.com/trustedform.js?provide_referrer=' +
+              escape(provideReferrer) +
+              '&field=' +
+              escape(field) +
+              '&l=' +
+              new Date().getTime() +
+              Math.random();
+            document.getElementsByTagName('head')[0].appendChild(script);
+          }
+        };
+
+        var addEvents = function () {
+          for (var index = 0; index < formControls.length; index++) {
+            formControls[index].addEventListener('keyup', clearErrors.bind(this));
+            formControls[index].addEventListener('change', clearErrors.bind(this));
+          }
+
+          btnPrev.addEventListener('click', prevNext.bind(this, -1));
+          btnNext.addEventListener('click', prevNext.bind(this, 1));
+          element.addEventListener('bflSubmit', submit.bind(this));
+        };
+
+        // Initialize
+        init();
+      };
+
+      // ---
+
+      window.addEventListener('DOMContentLoaded', function () {
+        buildLocalStorage();
+
+        window.formWizardObjs = {};
+        var formWizards = document.querySelectorAll('.js-form-wizard');
+        if (formWizards.length !== 0) {
+          for (var index = 0; index < formWizards.length; index++) {
+            formWizardObjs[formWizards[index].id] = new FormWizard(formWizards[index]);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
