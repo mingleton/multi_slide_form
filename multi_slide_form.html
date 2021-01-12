@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form 1</title>
+    <title>Multi Slide Form</title>
     <style>
       /* Reset */
       @import url('https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap');
@@ -230,15 +230,94 @@
       <input id="gclid" name="gclid" type="hidden" value="" />
 
       <fieldset class="step js-step">
-        <h1>Register</h1>
-        <legend>Namde</legend>
+        <h1>Find Out How Much You Could Save</h1>
+        <h4>Request a free quote today.</h4>
+        <legend>Name</legend>
         <div class="input-group js-input-group">
-          <label for="first_name">First name</label>
-          <input type="text" name="first" id="first_name" class="form-control js-form-control" required />
+          <input type="text" name="first" id="first_name" class="form-control js-form-control" placeholder="First Name*" required />
         </div>
         <div class="input-group js-input-group">
-          <label for="last_name">Last name</label>
-          <input type="text" name="last" id="last_name" class="form-control js-form-control" required />
+          <input type="text" name="last" id="last_name" class="form-control js-form-control" placeholder="Last Name*" required />
+        </div>
+        <div class="input-group js-input-group">
+            <input type="text" name="phone" id="phone_number" class="form-control js-form-control" placeholder="Phone*" required />
+        </div>
+        <div class="input-group js-input-group">
+            <input type="text" name="email" id="email" class="form-control js-form-control" placeholder="Email" required />
+        </div>
+      </fieldset>
+
+
+      <fieldset>
+          <p>Why are you interested in solar panels?</p>
+          <div class="checkboxes">
+            <label for="why_interested_cost">
+                <input type="checkbox" name="why_interested[]" id="why_interested_cost" value="Cost savings" tabindex="0">Cost savings
+            </label>
+            <label for="why_interested_environment">
+                <input type="checkbox" name="why_interested[]" id="why_interested_environment" value="Environmental impact" tabindex="1">Environmental impact
+            </label>
+            <label for="why_interested_energy">
+                <input type="checkbox" name="why_interested[]" id="why_interested_energy" value="Energy Independence" tabindex="2">Energy independence
+            </label>
+            <label for="why_interested_other">
+                <input type="checkbox" name="why_interested[]" id="why_interested_other" value="Other" tabindex="3">Other
+            </label>
+        </div>
+
+
+
+        <div class="form-row range">
+            <div class="label">How much is your monthly electric bill?</div>
+            <div class="range-display"><span class="value">$50</span>/Month</div>
+            <input type="range" min="50" max="350" value="50" step="50" class="range-slider" name="energy_bill" tabindex="0">
+        </div>
+      </fieldset>
+
+      <fieldset>
+          <div class="step-two">
+              <div class="radio-btn">
+                  <div class="label">Is your roof shaded from the sun?</div>
+                  <div class="radios">
+                      <label for="roof_shaded_yes">
+                          <input type="radio" name="roof_shaded" id="roof_shaded_yes" value="Yes" tabindex="0">
+                          Yes
+                      </label>
+
+                      <label for="roof_shaded_no">
+                        <input type="radio" name="roof_shaded" id="roof_shaded_no" value="No" tabindex="1">
+                        No
+                    </label>
+                    
+                    <label for="roof_shaded_partially">
+                        <input type="radio" name="roof_shaded" id="roof_shaded_partially" value="Partially" tabindex="2">
+                        Partially
+                    </label>
+                  </div>
+                  
+              </div>
+          </div>
+
+          <div class="zip_state">
+              <input class="input" type="zip" name="zip_code" id="zip_code" placeholder="Zip Code*" required>
+          </div>
+
+          <div class="input-group js-input-group">
+              <label for="state">State*</label>
+            <select class="input" name="state" id="state" tabindex="0">
+                <option value="">&nbsp;</option>
+                <option selected value="select">Please Select a State from the List</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="MI">Michigan</option>
+                <option value="MO">Missouri</option>
+                <option value="NC">North Carolina</option>
+                <option value="OH">Ohio</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="SC">South Carolina</option>
+                <option value="TN">Tennessee</option>
+                <option value="VA">Virginia</option>
+            </select>
         </div>
       </fieldset>
 
