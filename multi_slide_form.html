@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/db934c8ad5.js" crossorigin="anonymous"></script>
     <title>Multi Slide Form</title>
     <style>
       /* Reset */
@@ -67,6 +68,7 @@
 
       h4 {
         font-size: 1.25rem;
+        color: #365fa7;
       }
 
       h5 {
@@ -75,6 +77,19 @@
 
       h6 {
         font-size: 0.75rem;
+      }
+
+      .label {
+        font-weight: 600;
+        color: #365fa7;
+        font-size: 1.15em;
+        margin: 10px;
+      }
+
+      .header {
+          text-align: center;
+          font-weight: 600;
+          color: #365fa7;
       }
 
       img {
@@ -99,6 +114,23 @@
         font-size: 0;
         border: none;
         visibility: hidden;
+      }
+
+      .step-row {
+          width: 100%;
+          height: 40px;
+          margin: 20px auto;
+          display: flex;
+          align-items: center;
+          box-shadow: 0 -1px 5px -1px #000;
+          position: relative;
+      }
+
+      .step-col {
+          width: 150px;
+          text-align: center;
+          color: #333;
+          position: relative;
       }
 
       label {
@@ -144,6 +176,8 @@
         font-family: 'Raleway', sans-serif;
         line-height: 1.2;
         background-color: #f3f3f3;
+        display: grid;
+        justify-content: center;
       }
 
       h1 {
@@ -154,9 +188,16 @@
       button {
         padding: 10px 15px;
         color: #ffffff;
-        background-color: #7755dd;
+        background-color: #ff8200;
+        border-radius: 10px;
         border: 0;
         cursor: pointer;
+        font-size: 1.5em;
+        width: 50%;
+      }
+
+      button:hover {
+          background-color: slategray;
       }
 
       .wrapper {
@@ -166,13 +207,55 @@
       }
 
       .text-right {
-        text-align: right;
+        text-align: center;
       }
 
+      .form-holder {
+          width: 75%;
+          position: relative;
+      }
+
+      .checkbox-holder {
+          text-align: center;
+      }
+
+      .checkboxes {
+        padding: 15px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        flex-wrap: wrap;
+      }
+
+
+      
       .form-wizard {
+        width: 550px;
+        min-height: 550px;
         padding: 40px 50px;
         background-color: #ffffff;
         box-shadow: 0 5px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-footer {
+          text-align: center;
+          padding: 5px;
+      }
+
+      .form-footer-lock {
+          font-size: 1.15em;
+          margin-bottom: 15px;
+      }
+
+      .footer-text {
+          font-size: .5em;
+          letter-spacing: 0;
+          max-width: 300px;
+          text-align: center;
+          border: 1px solid rgb(170, 170, 170);
+          line-height: 10px;
+          padding: 5px;
       }
 
       .step {
@@ -196,26 +279,49 @@
         border: 1px solid #777777;
       }
 
-      .btn-prev {
+
+
+      /* .btn-prev {
         display: none;
       }
 
       .btn-prev.is-active {
         display: inline-block;
-      }
+      } */
 
-      .progress-bar {
+      /* .progress-bar {
         margin-bottom: 10px;
         width: 100%;
-        height: 2px;
         background-color: #7755dd;
         transform-origin: left center;
         transform: scaleX(0.01);
         transition: transform 0.2s ease;
+      } */
+
+      .progress-bar {
+          position: absolute;
+          height: 100%;
+          width: 150px;
+          background: linear-gradient(to right, #ff105f, #ffad06);
+          transition: .5s ease-in;
       }
+
+      .progress-bar::after {
+          content: '';
+          height: 0;
+          width: 0;
+          border-top: 20px solid transparent;
+          border-bottom: 20px solid transparent;
+          position: absolute;
+          right: -20px;
+          top: 0;
+          border-left: 20px solid #ffad06;
+      }
+
     </style>
   </head>
   <body>
+   <div class="form-holder">
     <form
       method="post"
       action="https://collector.bluefireforms.com/api/data/lead/6f97e39e-b4f1-4b27-b156-7d0c2bdc30a4"
@@ -229,28 +335,44 @@
       <input id="comboid" name="campaign_sub_id_2" type="hidden" value="" />
       <input id="gclid" name="gclid" type="hidden" value="" />
 
+
+
+
+      <div class="step-row">
+          <div class="progress-bar js-progress-bar"></div>
+        <div class="step-col">Step One</div>
+        <div class="step-col">Step Two</div>
+        <div class="step-col">Request a Quote</div>
+      </div>
+
       <fieldset class="step js-step">
-        <h1>Find Out How Much You Could Save</h1>
+        <h1 class="header">Find Out How Much You Could Save</h1>
         <h4>Request a free quote today.</h4>
         <legend>Name</legend>
         <div class="input-group js-input-group">
-          <input type="text" name="first" id="first_name" class="form-control js-form-control" placeholder="First Name*" required />
+          <input type="text" name="first" id="first_name" class="form-control js-form-control" placeholder="First Name*"  />
         </div>
         <div class="input-group js-input-group">
-          <input type="text" name="last" id="last_name" class="form-control js-form-control" placeholder="Last Name*" required />
+          <input type="text" name="last" id="last_name" class="form-control js-form-control" placeholder="Last Name*"  />
         </div>
         <div class="input-group js-input-group">
-            <input type="text" name="phone" id="phone_number" class="form-control js-form-control" placeholder="Phone*" required />
+            <input type="text" name="phone" id="phone_number" class="form-control js-form-control" placeholder="Phone*"  />
         </div>
         <div class="input-group js-input-group">
-            <input type="text" name="email" id="email" class="form-control js-form-control" placeholder="Email" required />
+            <input type="text" name="email" id="email" class="form-control js-form-control" placeholder="Email (Optional)" />
         </div>
+
+        
       </fieldset>
 
 
-      <fieldset>
-          <p>Why are you interested in solar panels?</p>
-          <div class="checkboxes">
+      <fieldset class="step js-step">
+
+        <div class="page-two">
+
+
+        <div class="label">Why are you interested in solar panels?</div>
+        <div class="checkboxes">
             <label for="why_interested_cost">
                 <input type="checkbox" name="why_interested[]" id="why_interested_cost" value="Cost savings" tabindex="0">Cost savings
             </label>
@@ -263,18 +385,33 @@
             <label for="why_interested_other">
                 <input type="checkbox" name="why_interested[]" id="why_interested_other" value="Other" tabindex="3">Other
             </label>
-        </div>
+
+         </div>
 
 
 
         <div class="form-row range">
             <div class="label">How much is your monthly electric bill?</div>
-            <div class="range-display"><span class="value">$50</span>/Month</div>
-            <input type="range" min="50" max="350" value="50" step="50" class="range-slider" name="energy_bill" tabindex="0">
+            <div class="electric-bill-select">
+            <select name="electricBill" id="monthly_electric_bill" class="form-control js-form-control" required >
+                <option value="$75 - $99">$75 - $99</option>
+                <option value="$100 - $149" selected>$100 - $149</option>
+                <option value="$150 - $199">$150 - $199</option>
+                <option value="$200 - $249">$200 - $249</option>
+                <option value="$250 - $299">$250 - $299</option>
+                <option value="$300 - $349">$300 - $349</option>
+                <option value="$350 - $399">$350 - $399</option>
+                <option value="$400 - $449">$400 - $449</option>
+                <option value="$450 - $499">$450 - $499</option>
+                <option value="$500+">$500+</option>
+              </select>
+            </div>
+        </div>
+
         </div>
       </fieldset>
 
-      <fieldset>
+      <fieldset class="step js-step"> 
           <div class="step-two">
               <div class="radio-btn">
                   <div class="label">Is your roof shaded from the sun?</div>
@@ -304,9 +441,9 @@
 
           <div class="input-group js-input-group">
               <label for="state">State*</label>
-            <select class="input" name="state" id="state" tabindex="0">
+            <select class="input" name="state" id="state" tabindex="3" required>
                 <option value="">&nbsp;</option>
-                <option selected value="select">Please Select a State from the List</option>
+                <option selected value="select">Please Select a State</option>
                 <option value="IL">Illinois</option>
                 <option value="IN">Indiana</option>
                 <option value="MI">Michigan</option>
@@ -319,15 +456,37 @@
                 <option value="VA">Virginia</option>
             </select>
         </div>
+
+        <div class="form-footer">
+            <div class="form-footer-lock"> 
+                <span style="font-size: 1.15em;">
+                 <i class="fas fa-lock"></i>
+                 </span>
+                We protect your information.
+            </div>
+     
+             <div>
+                <label>
+                 <label class="footer-text">
+                     By clicking above, you authorize SolarVisit and up to four <a target="_blank" href="https://solarvisit.com/our-associates/">Solar Companies</a> 
+                     to call you and send you pre-recorded messages and text messages at the number you entered above, using an autodialer, with offers about their 
+                     products or services, even if your phone number is on any national or state "Do Not Call" list. Message and data rates may apply. 
+                     Your consent here is not based on a condition of purchase. 
+                 </label>
+                </label>             
+             </div>
+
       </fieldset>
 
       <div class="input-group text-right">
-        <button type="button" class="btn-prev js-btn-prev">Prev</button>
-        <button type="button" class="js-btn-next" data-step-text="Next" data-final-step-text="Submit">Next</button>
+        <!-- <button type="button" class="btn-prev js-btn-prev">Prev</button> -->
+        <button type="button" class="js-btn-next" data-step-text="Next" data-final-step-text="Request a Free Quote">Next</button>
       </div>
 
-      <div class="progress-bar js-progress-bar"></div>
+
+
     </form>
+</div>
 
     <script>
       var buildLocalStorage = function () {
@@ -407,7 +566,7 @@
         var element = prop_element;
         var steps = element.querySelectorAll('.js-step');
         var formControls = element.querySelectorAll('.js-form-control');
-        var btnPrev = element.querySelector('.js-btn-prev');
+        // var btnPrev = element.querySelector('.js-btn-prev');
         var btnNext = element.querySelector('.js-btn-next');
         var progressBar = element.querySelector('.js-progress-bar');
         var currentStepIdx = 0;
@@ -431,7 +590,7 @@
           var stepIdx = prop_stepIdx;
 
           steps[stepIdx].classList.add('is-active');
-          btnPrev.classList[stepIdx === 0 ? 'remove' : 'add']('is-active');
+        //   btnPrev.classList[stepIdx === 0 ? 'remove' : 'add']('is-active');
           btnNext.innerText = btnNext.dataset[stepIdx === steps.length - 1 ? 'finalStepText' : 'stepText'];
 
           updateProgressBar(stepIdx);
@@ -484,8 +643,9 @@
         };
 
         var updateProgressBar = function (prop_stepIdx) {
-          var percentage = prop_stepIdx / steps.length;
+          var percentage = prop_stepIdx++;
 
+        //   progressBar.style.transform = percentage;
           progressBar.style.transform = percentage === 0 ? 'scaleX(0.01)' : 'scaleX(' + percentage + ')';
         };
 
@@ -638,7 +798,7 @@
             formControls[index].addEventListener('change', clearErrors.bind(this));
           }
 
-          btnPrev.addEventListener('click', prevNext.bind(this, -1));
+        //   btnPrev.addEventListener('click', prevNext.bind(this, -1));
           btnNext.addEventListener('click', prevNext.bind(this, 1));
           element.addEventListener('bflSubmit', submit.bind(this));
         };
