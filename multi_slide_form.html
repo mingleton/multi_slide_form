@@ -79,6 +79,12 @@
         font-size: 0.75rem;
       }
 
+      .wrapper {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 960px;
+      }
+
       .label {
         font-weight: 600;
         color: #365fa7;
@@ -178,12 +184,9 @@
       }
 
       body {
-        padding: 20px;
         font-family: 'Raleway', sans-serif;
         line-height: 1.2;
         background-color: #f3f3f3;
-        display: grid;
-        justify-content: center;
       }
 
       h1 {
@@ -216,11 +219,6 @@
         text-align: center;
       }
 
-      .form-holder {
-          width: 75%;
-          position: relative;
-      }
-
       .checkbox-holder {
           text-align: center;
       }
@@ -237,8 +235,9 @@
 
       
       .form-wizard {
-        width: 550px;
-        min-height: 550px;
+        width: 100%;
+        margin: auto;
+        max-width: 550px;
         padding: 40px 50px;
         background-color: #ffffff;
         box-shadow: 0 5px 25px -5px rgba(0, 0, 0, 0.1);
@@ -341,7 +340,8 @@
     </style>
   </head>
   <body>
-   <div class="form-holder nojs">
+    <div class="wrapper nojs">
+   <div class="form-holder">
 
     <form
       method="post"
@@ -427,17 +427,17 @@
                 <div class="label">Is your roof shaded from the sun?</div>
                 <div class="radios">
                     <label for="roof_shaded_yes">
-                        <input type="radio" name="roof_shaded" id="roof_shaded_yes" value="Yes" tabindex="0">
+                        <input type="radio" name="roof_shaded" id="roof_shaded_yes" value="Yes" tabindex="0" required>
                         Yes
                     </label>
 
                     <label for="roof_shaded_no">
-                      <input type="radio" name="roof_shaded" id="roof_shaded_no" value="No" tabindex="1">
+                      <input type="radio" name="roof_shaded" id="roof_shaded_no" value="No" tabindex="1" required>
                       No
                   </label>
                   
                   <label for="roof_shaded_partially">
-                      <input type="radio" name="roof_shaded" id="roof_shaded_partially" value="Partially" tabindex="2">
+                      <input type="radio" name="roof_shaded" id="roof_shaded_partially" value="Partially" tabindex="2" required>
                       Partially
                   </label>
                 </div>
@@ -541,6 +541,7 @@
       </div>
     </div>
     </form>
+  </div>
 </div>
 
     <script>
@@ -720,12 +721,12 @@ var FormWizard = function (prop_element) {
     e.target.closest('.js-input-group').classList.remove('has-error');
   };
 
-  var updateProgressBar = function (prop_stepIdx) {
     // var percentage = 33;
-    var percentage = prop_stepIdx / steps.length;
-
-    progressBar.style.transform = percentage === 0 ? 'scaleX(0.33)' : 'scaleX(' + percentage + ')';
-  };
+    var updateProgressBar = function (prop_stepIdx) {
+          prop_stepIdx += 1;
+          var percentage = prop_stepIdx / steps.length;
+          progressBar.style.transform = percentage === 0 ? 'scaleX(0.01)' : 'scaleX(' + percentage + ')';
+        };
 
   var encodeQueryData = function (data) {
     var ret = [];
